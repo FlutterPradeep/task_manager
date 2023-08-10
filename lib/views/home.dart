@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:task_manager/models/task_model.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:task_manager/views/task.dart';
+import 'package:task_manager/views/todo.dart';
+import 'package:task_manager/views/todo_screen.dart';
+import 'package:task_manager/widgets/todo_tile.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -15,7 +18,18 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     final taskList = TaskModel.generateTask();
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 253, 246, 183),
       appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            // TODO DRawer
+            // Navigator.of(context)
+            //     .push(MaterialPageRoute(builder: (context) => const DrawerHome()));
+          },
+          icon: const Icon(Icons.more_vert),
+          color: Colors.black,
+          iconSize: 30,
+        ),
         title: const Text(
           "Hello Pradeep!!",
           style: TextStyle(fontWeight: FontWeight.bold),
@@ -34,55 +48,55 @@ class _HomeState extends State<Home> {
               backgroundImage: NetworkImage(
                   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYRS0mofvZhLkaNJFVN9wSA-j7HhTb4nLPb6Nbi7qvfw&s"),
             ),
-          )
+          ),
         ],
       ),
-      drawer: Drawer(
-        child: ListView(
-          children: [
-            const UserAccountsDrawerHeader(
-              accountName: Text('John Doe'),
-              accountEmail: Text('johndoe@example.com'),
-              currentAccountPicture: CircleAvatar(
-                backgroundImage: AssetImage('assets/profile_photo.jpg'),
-              ),
-            ),
-            ListTile(
-              leading: const Icon(Icons.home),
-              title: const Text('Home'),
-              onTap: () {
-                // Add your action here
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.settings),
-              title: const Text('Settings'),
-              onTap: () {
-                // Add your action here
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.help),
-              title: const Text('Help'),
-              onTap: () {
-                // Add your action here
-                Navigator.pop(context);
-              },
-            ),
-            const Divider(),
-            ListTile(
-              leading: const Icon(Icons.exit_to_app),
-              title: const Text('Logout'),
-              onTap: () {
-                // Add your action here
-                Navigator.pop(context);
-              },
-            ),
-          ],
-        ),
-      ),
+      // drawer: Drawer(
+      //   child: ListView(
+      //     children: [
+      //       const UserAccountsDrawerHeader(
+      //         accountName: Text('John Doe'),
+      //         accountEmail: Text('johndoe@example.com'),
+      //         currentAccountPicture: CircleAvatar(
+      //           backgroundImage: AssetImage('assets/profile_photo.jpg'),
+      //         ),
+      //       ),
+      //       ListTile(
+      //         leading: const Icon(Icons.home),
+      //         title: const Text('Home'),
+      //         onTap: () {
+      //           // Add your action here
+      //           Navigator.pop(context);
+      //         },
+      //       ),
+      //       ListTile(
+      //         leading: const Icon(Icons.settings),
+      //         title: const Text('Settings'),
+      //         onTap: () {
+      //           // Add your action here
+      //           Navigator.pop(context);
+      //         },
+      //       ),
+      //       ListTile(
+      //         leading: const Icon(Icons.help),
+      //         title: const Text('Help'),
+      //         onTap: () {
+      //           // Add your action here
+      //           Navigator.pop(context);
+      //         },
+      //       ),
+      //       const Divider(),
+      //       ListTile(
+      //         leading: const Icon(Icons.exit_to_app),
+      //         title: const Text('Logout'),
+      //         onTap: () {
+      //           // Add your action here
+      //           Navigator.pop(context);
+      //         },
+      //       ),
+      //     ],
+      //   ),
+      // ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -118,7 +132,10 @@ class _HomeState extends State<Home> {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
         elevation: 0,
         backgroundColor: Colors.black,
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => HomePage()));
+        },
         child: const Icon(
           Icons.add,
           size: 35,

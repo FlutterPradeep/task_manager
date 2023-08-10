@@ -32,7 +32,7 @@ class ProfilePage extends StatelessWidget {
               ),
             ),
             ListTile(
-              leading: Icon(Icons.home),
+              leading: const Icon(Icons.home),
               title: const Text('Home'),
               onTap: () {
                 // Add your action here
@@ -40,25 +40,25 @@ class ProfilePage extends StatelessWidget {
               },
             ),
             ListTile(
-              leading: Icon(Icons.settings),
-              title: Text('Settings'),
+              leading: const Icon(Icons.settings),
+              title: const Text('Settings'),
               onTap: () {
                 // Add your action here
                 Navigator.pop(context);
               },
             ),
             ListTile(
-              leading: Icon(Icons.help),
-              title: Text('Help'),
+              leading: const Icon(Icons.help),
+              title: const Text('Help'),
               onTap: () {
                 // Add your action here
                 Navigator.pop(context);
               },
             ),
-            Divider(),
+            const Divider(),
             ListTile(
-              leading: Icon(Icons.exit_to_app),
-              title: Text('Logout'),
+              leading: const Icon(Icons.exit_to_app),
+              title: const Text('Logout'),
               onTap: () {
                 // Add your action here
                 Navigator.pop(context);

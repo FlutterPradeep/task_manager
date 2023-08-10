@@ -32,11 +32,14 @@ Widget get _rectBorderWidget {
   return DottedBorder(
     dashPattern: [10, 10],
     strokeWidth: 1,
-    child: const Center(
-        child: Text(
-      '+ Add Task',
-      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-    )),
+    child: GestureDetector(
+      onTap: () {},
+      child: const Center(
+          child: Text(
+        '+ Add Task',
+        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+      )),
+    ),
   );
 }
 
